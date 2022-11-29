@@ -5,6 +5,7 @@ import {useEffect} from "react";
 
 function App() {
   useEffect(() => {
+    //useEffect hooks cannot call out to async calls directly
     const getImage = async () => {
       const response = await getPictureOfTheDay();
       console.log("Parsed response body:", response);
