@@ -6,9 +6,6 @@ export const getPictureOfTheDay = async () => {
     const apiUrl = `${API_URL_BASE}?api_key=${NASA_API_KEY}`;
     //start templating
 
-    const apiUrl2 = API_URL_BASE + "?api_key=" + NASA_API_KEY;
-    //another way to string template but could lead to coercian 
-    //issues if the variables are numbers
 
     const response = await fetch(apiUrl);
 

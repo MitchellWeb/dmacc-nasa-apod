@@ -1,34 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
 import {getPictureOfTheDay} from "./api";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
+
+  //pod = picture of the day
+  const [pod, setPod] = useState(null);
+
   useEffect(() => {
     //useEffect hooks cannot call out to async calls directly
     const getImage = async () => {
       const response = await getPictureOfTheDay();
       console.log("Parsed response body:", response);
+      setPod(response);
     }
+
+    
 
     getImage();
   }, []);
+  
+  //h1, p, and img src need to be dynamic AKA using variables instead of just strings
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        pod ? 
+        <h1>{pod.title}</h1>
+        :
+        <h1>Loading...</h1>
+
+      }
+        
     </div>
   );
 }
