@@ -28,7 +28,11 @@ function App() {
     <div>
       {
         pod ? 
+        <div id='contentBlock'>
         <h1>{pod.title}</h1>
+        <p>{pod.explanation}</p>
+        <img id='hdurl' src={pod.hdurl} alt={pod.title}></img>
+        </div>
         :
         <h1>Loading...</h1>
 
